@@ -1,0 +1,2131 @@
+{
+  "name": "DK-action",
+  "type": "action",
+  "counts": {
+    "actions": 7,
+    "intents": 4,
+    "entities": 7,
+    "data_types": 0,
+    "collections": 1,
+    "global_variables": 1
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "0d723fb4-101f-4b2b-bc4a-cc09a5bf2196",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_409",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Following Courses Our Institution Provides :"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "B. Tech",
+                      "value": {
+                        "input": {
+                          "text": "B. Tech"
+                        }
+                      }
+                    },
+                    {
+                      "label": "M. Tech",
+                      "value": {
+                        "input": {
+                          "text": "M. Tech"
+                        }
+                      }
+                    },
+                    {
+                      "label": "BCA",
+                      "value": {
+                        "input": {
+                          "text": "BCA"
+                        }
+                      }
+                    },
+                    {
+                      "label": "MCA ",
+                      "value": {
+                        "input": {
+                          "text": "MCA "
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_22535",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_409",
+            "next_step": "step_764"
+          },
+          {
+            "step": "step_764",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "B. Tech Courses are :"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Computer Science",
+                      "value": {
+                        "input": {
+                          "text": "Computer Science"
+                        }
+                      }
+                    },
+                    {
+                      "label": "AI/ML",
+                      "value": {
+                        "input": {
+                          "text": "AI/ML"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Cyber Security",
+                      "value": {
+                        "input": {
+                          "text": "Cyber Security"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Electrical And Communication Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Electrical And Communication Engineering"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Electrical And Electronics Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Electrical And Electronics Engineering"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_17872",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_764",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_409"
+                },
+                {
+                  "value": "B. Tech",
+                  "from_entity": "entity_22535"
+                }
+              ]
+            },
+            "next_step": "step_513"
+          },
+          {
+            "step": "step_513",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 4 Years\n\nFees : 96000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_513",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_764"
+                },
+                {
+                  "value": "Computer Science",
+                  "from_entity": "entity_17872"
+                }
+              ]
+            },
+            "next_step": "step_775"
+          },
+          {
+            "step": "step_775",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 4 Years\n\nFees : 96000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_775",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_764"
+                },
+                {
+                  "value": "AI/ML",
+                  "from_entity": "entity_17872"
+                }
+              ]
+            },
+            "next_step": "step_418"
+          },
+          {
+            "step": "step_418",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 4 Years\n\nFees : 96000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_418",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_764"
+                },
+                {
+                  "value": "Cyber Security",
+                  "from_entity": "entity_17872"
+                }
+              ]
+            },
+            "next_step": "step_101"
+          },
+          {
+            "step": "step_101",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 4 Years\n\nFees : 80000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_101",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_764"
+                },
+                {
+                  "value": "Electrical And Communication Engineering",
+                  "from_entity": "entity_17872"
+                }
+              ]
+            },
+            "next_step": "step_318"
+          },
+          {
+            "step": "step_318",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 4 Years\n\nFees : 80000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_318",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_764"
+                },
+                {
+                  "value": "Electrical And Electronics Engineering",
+                  "from_entity": "entity_17872"
+                }
+              ]
+            },
+            "next_step": "step_700"
+          },
+          {
+            "step": "step_700",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "M. Tech Courses are :"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Computer Science ",
+                      "value": {
+                        "input": {
+                          "text": "Computer Science "
+                        }
+                      }
+                    },
+                    {
+                      "label": "Electrical And Communication Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Electrical And Communication Engineering"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Electrical And Electronics Engineering ",
+                      "value": {
+                        "input": {
+                          "text": "Electrical And Electronics Engineering "
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_13024",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_700",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_409"
+                },
+                {
+                  "value": "M. Tech",
+                  "from_entity": "entity_22535"
+                }
+              ]
+            },
+            "next_step": "step_331"
+          },
+          {
+            "step": "step_331",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 2 Years\n\nFees : 49000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_331",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_700"
+                },
+                {
+                  "value": "Computer Science ",
+                  "from_entity": "entity_13024"
+                }
+              ]
+            },
+            "next_step": "step_727"
+          },
+          {
+            "step": "step_727",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 2 Years\n\nFees : 49000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_727",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_700"
+                },
+                {
+                  "value": "Electrical And Communication Engineering",
+                  "from_entity": "entity_13024"
+                }
+              ]
+            },
+            "next_step": "step_297"
+          },
+          {
+            "step": "step_297",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 2 Years\n\nFees : 49000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_297",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_700"
+                },
+                {
+                  "value": "Electrical And Electronics Engineering ",
+                  "from_entity": "entity_13024"
+                }
+              ]
+            },
+            "next_step": "step_340"
+          },
+          {
+            "step": "step_340",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 3 Years\n\nFees : 50000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_340",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_409"
+                },
+                {
+                  "value": "BCA",
+                  "from_entity": "entity_22535"
+                }
+              ]
+            },
+            "next_step": "step_651"
+          },
+          {
+            "step": "step_651",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Duration : 2 Years\n\nFees : 45000/- Per Year"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_651",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_409"
+                },
+                {
+                  "value": "MCA ",
+                  "from_entity": "entity_22535"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Courses",
+        "action": "action_42010",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_42010_intent_25884"
+        },
+        "variables": [
+          {
+            "title": "Duration : 4 Years Fees : 80000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_101",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 2 Years Fees : 49000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_297",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 4 Years Fees : 80000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_318",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 2 Years Fees : 49000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_331",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 3 Years Fees : 50000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_340",
+            "data_type": "any"
+          },
+          {
+            "title": "Following Courses Our Institution Provides :",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_409",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 4 Years Fees : 96000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_418",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 4 Years Fees : 96000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_513",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 2 Years Fees : 45000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_651",
+            "data_type": "any"
+          },
+          {
+            "title": "M. Tech Courses are :",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_700",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 2 Years Fees : 49000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_727",
+            "data_type": "any"
+          },
+          {
+            "title": "B. Tech Courses are :",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_764",
+            "data_type": "any"
+          },
+          {
+            "title": "Duration : 4 Years Fees : 96000/- Per Year",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_775",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_32600",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_591",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Eligibility Criteria For Admission :\n\n12th Percentage >= 75%\n\nJEE Mains Rank >= 250000"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_591",
+            "next_step": "step_962"
+          },
+          {
+            "step": "step_962",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Give Your Contact Number :"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Enter a number."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_962",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_591"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_426"
+          },
+          {
+            "step": "step_426",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Our Admission Executive will reach out to you in 24 hours."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_426",
+            "condition": {
+              "exists": {
+                "variable": "step_962"
+              }
+            }
+          }
+        ],
+        "title": "I want to enroll in courses.",
+        "action": "action_10547",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_10547_intent_13638"
+        },
+        "variables": [
+          {
+            "title": "Our Admission Executive will reach out to you in 24 hours.",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_426",
+            "data_type": "any"
+          },
+          {
+            "title": "Eligibility Criteria For Admission : 12th Percentage >= 75% JEE ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_591",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Give Your Contact Number :",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_962",
+            "data_type": "number"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_42010",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_10547",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_445",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hey there, Welcome to Sambalpur University Institute Of Information Technology, Burla."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_445",
+            "next_step": "step_446"
+          },
+          {
+            "step": "step_446",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your name ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_446",
+            "next_step": "step_568"
+          },
+          {
+            "step": "step_568",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hi!"
+                          },
+                          {
+                            "skill_variable": "Name"
+                          },
+                          {
+                            "scalar": ", How can I help you ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_446"
+                  },
+                  "skill_variable": "Name"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_568"
+          }
+        ],
+        "title": "Greeting",
+        "action": "action_32600",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_32600_intent_33003"
+        },
+        "variables": [
+          {
+            "title": "Hey there, Welcome to Sambalpur University Institute Of Informat",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_445",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your name ?",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_446",
+            "data_type": "any"
+          },
+          {
+            "title": "Hi!{variable}, How can I help you ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_568",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_42010_intent_25884",
+        "examples": [
+          {
+            "text": "Courses"
+          },
+          {
+            "text": "Course List"
+          }
+        ]
+      },
+      {
+        "intent": "action_10547_intent_13638",
+        "examples": [
+          {
+            "text": "admission"
+          },
+          {
+            "text": "I want to admission in cousres."
+          },
+          {
+            "text": "I want to enroll in courses."
+          },
+          {
+            "text": "enroll"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to someone"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_32600_intent_33003",
+        "examples": [
+          {
+            "text": "Hello"
+          },
+          {
+            "text": "Greeting"
+          },
+          {
+            "text": "Hi"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_17872",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Electrical And Communication Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Cyber Security",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Electrical And Electronics Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Computer Science",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "AI/ML",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-number",
+        "values": []
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_13024",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Electrical And Communication Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Computer Science ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Electrical And Electronics Engineering ",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      },
+      {
+        "entity": "entity_22535",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "MCA ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "BCA",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "M. Tech",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "B. Tech",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 7,
+          "intents": 4,
+          "entities": 7,
+          "data_types": 0,
+          "collections": 1,
+          "global_variables": 1
+        }
+      }
+    },
+    "variables": [
+      {
+        "title": "Name",
+        "privacy": {
+          "enabled": false
+        },
+        "variable": "Name",
+        "data_type": "string",
+        "description": ""
+      }
+    ],
+    "data_types": [],
+    "collections": [
+      {
+        "title": "Dk Assistant",
+        "collection": "collection_15509",
+        "action_references": [
+          {
+            "action": "action_42010"
+          },
+          {
+            "action": "action_10547"
+          },
+          {
+            "action": "action_32600"
+          }
+        ]
+      }
+    ],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "slot_filling": {
+          "enabled": false
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant b93fbfb3-638f-4883-9d43-8677c1ffc841",
+  "dialog_settings": {
+    "source_assistant": "46ebc7b4-928b-4f7c-b467-c754b404d6ee"
+  },
+  "created": "2024-06-30T17:21:56.705Z",
+  "updated": "2024-06-30T17:21:56.705Z",
+  "snapshot": "3",
+  "assistant_id": "b93fbfb3-638f-4883-9d43-8677c1ffc841",
+  "assistant_references": []
+}
